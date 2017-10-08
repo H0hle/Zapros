@@ -1,7 +1,17 @@
 #include <stdio.h>
+#include <curl/curl.h>
 int main()
 {
-   // printf() displays the string inside quotation
-   printf("Hello, World!");
+  curl = curl_easy_init();
+if(curl) {
+ curl_easy_setopt(curl, CURLOPT_URL, "http://google.com");
+
+ /* use a GET to fetch this */
+ curl_easy_setopt(curl, CURLOPT_HTTPGET, 1L);
+
+ /* Perform the request */
+ curl_easy_perform(curl);
+}
+
    return 0;
 }
